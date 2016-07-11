@@ -35,11 +35,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         init();
         setListener();
         fragmentManager = this.getSupportFragmentManager();
-
+        navigationView.getMenu().getItem(0).setChecked(true);
+        onNavigationItemSelected(navigationView.getMenu().getItem(0));
     }
 
     private void setListener() {
         navigationView.setNavigationItemSelectedListener(this);
+
         drawer.setDrawerListener(new DrawerLayout.DrawerListener() {
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {

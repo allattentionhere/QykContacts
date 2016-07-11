@@ -27,8 +27,6 @@ import com.google.gson.Gson;
 
 import org.json.JSONObject;
 
-;
-
 
 public class ContactsFragment extends android.support.v4.app.Fragment implements Datacallback {
 
@@ -123,6 +121,5 @@ public class ContactsFragment extends android.support.v4.app.Fragment implements
         btn_retry.setVisibility(View.VISIBLE);
         list_contacts.setVisibility(View.GONE);
     }
-
 
 }

@@ -68,11 +68,20 @@ public class HttpRequestHelper {
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
+                            }else {
+                                try {
+                                    Log.i("volley", "failed");
+                                    JSONObject jsonObject = new JSONObject();
+                                    jsonObject.put("fail", "failed");
+                                    db.onFailure(jsonObject, relative_uri);
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
                             }
                         }
                     });
             jsObjRequest.setShouldCache(false);
-            jsObjRequest.setRetryPolicy(new DefaultRetryPolicy(30000, 1, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+            jsObjRequest.setRetryPolicy(new DefaultRetryPolicy(10000, 1, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
             jsObjRequest.setTag(db);
             MyApplication.Remotecalls.add(jsObjRequest);
         }

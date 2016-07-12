@@ -83,6 +83,9 @@ public class ContactsFragment extends android.support.v4.app.Fragment implements
                 NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
                 if (networkInfo != null && networkInfo.isConnected()) {
                     //make network call
+                    pb.setVisibility(View.VISIBLE);
+                    btn_retry.setVisibility(View.GONE);
+                    list_contacts.setVisibility(View.GONE);
                     new HttpRequestHelper().MakeJsonGetRequest("/contacts.php", null, ContactsFragment.this, getActivity());
                 } else {
                     pb.setVisibility(View.GONE);
